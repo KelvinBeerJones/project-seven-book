@@ -1,0 +1,1038 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>P7 Chapter 1 - The Human Data digital Toolkit (HDDT)</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'chapters/1_jnb_hddt_intro';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="P7 Chapter 2 The CEDA Members" href="2_introduction_sql_tables.html" />
+    <link rel="prev" title="Welcome to your Jupyter Book" href="../intro.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.jpg" class="logo__image only-light" alt=" - Home"/>
+    <img src="../_static/logo.jpg" class="logo__image only-dark pst-js-only" alt=" - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Welcome to your Jupyter Book
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">P7 Chapter 1 - The Human Data digital Toolkit (HDDT)</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="2_introduction_sql_tables.html">P7 Chapter 2 The CEDA Members</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="3_jnb_ceda_database_views.html">HDDT Using SQLite database standard ‘views’</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="4_jnb_hddt_ceda_dyn_edges.html">P7 Chapter 4 Case Study 1 The Centres for the Emergence of the Discipline of Anthropology (CEDA)</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="5a_laidlaw.html">P7 Chapter 5a Thomas Hodgkin MD’s networks - Part one</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="5b_jnb_hddt_laidlaw2.html">P7 Chapter 5b Thomas Hodgkin’s MD networks - Part two</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="6_quaker_tables.html">P7 Chapter 6 Case Study 2 589 Quakers and their family relationships</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="7_qsra_september_2021.html">P7 Chapter 7 Project Seven presentation</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+<a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="Source repository"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/chapters/1_jnb_hddt_intro.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>P7 Chapter 1 - The Human Data digital Toolkit (HDDT)</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">P7 Chapter 1 - The Human Data digital Toolkit (HDDT)</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#thesis-chapter-6-sections-6-16-and-6-17">Thesis Chapter 6 Sections 6.16 and 6.17</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#jumps">7.2.1 Jumps</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#the-data-and-model-objectives">7.2.2 The data and model objectives</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-data">The data:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-hddt-requirements">The HDDT requirements</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-model">The model:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#question-1">Question 1:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#question-2">Question 2</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#question-3">Question 3</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#httd-technical-objective">7.2.3 HTTD technical Objective</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#archival-data-can-now-be-surveyed-much-as-an-archaeological-site-can-by-using-technology">Archival data can now be surveyed much as an archaeological site can - by using technology</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#contributing-datasets">7.2.4 Contributing datasets</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-hddt-integrates-ordered-datasets-from-a-variety-of-sources-to-create-one-sqlite-httd-database">The HDDT integrates ordered datasets from a variety of sources to create one SQLite HTTD database</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#dataset-variability">7.2.5 Dataset variability</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-complete-dataset">A ‘complete’ dataset</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#an-incomplete-dataset">An ‘incomplete’ dataset</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#an-irregular-dataset">An ‘irregular’ dataset</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#data-pipeline">7.2.6 Data pipeline</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#model-output-data-visualisation-criteria">7.2.7 Model output - Data visualisation criteria</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#integrated-httd-sqlite-database-3095-persons">7.2.8 Integrated HTTD SQLite database - 3095 persons</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#entity-relationship-diagram-erd">Entity Relationship Diagram (ERD)</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#hddt-design-architecture">7.2.9 HDDT Design Architecture</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#project-containers-contain-all-required-resources">7.2.10 Project containers contain all required resources</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#github">7.2.11 Github</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#sqlite-recommendations">7.2.12 SQLite recommendations</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#vsc-recommendations">7.2.13 VSC recommendations</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#vsc-version-control-interface-local-to-online-git-repo-s">7.2.14 VSC (Version control interface local to online Git Repo’s</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#dbeaver-recommendations">7.2.15 DBeaver recommendations</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#jupyter-notebook-recommendations">7.2.16 Jupyter Notebook recommendations</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#gephi-recommends">7.2.17 Gephi recommends</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#excel-recommends">7.2.18 Excel recommends</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#references">7.2.19 References</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#quakers-amongst-3000-activists-for-40-years">7.2.20  600 Quakers amongst 3000 activists for 40 years.</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#end">END</a></li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="p7-chapter-1-the-human-data-digital-toolkit-hddt">
+<h1>P7 Chapter 1 - The Human Data digital Toolkit (HDDT)<a class="headerlink" href="#p7-chapter-1-the-human-data-digital-toolkit-hddt" title="Link to this heading">#</a></h1>
+<section id="thesis-chapter-6-sections-6-16-and-6-17">
+<h2>Thesis Chapter 6 Sections 6.16 and 6.17<a class="headerlink" href="#thesis-chapter-6-sections-6-16-and-6-17" title="Link to this heading">#</a></h2>
+<p>File name: jnb_hddt_intro</p>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="jumps">
+<h1>7.2.1 Jumps<a class="headerlink" href="#jumps" title="Link to this heading">#</a></h1>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Jump to:</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference internal" href="#1"><span class="xref myst">My PhD project</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#2"><span class="xref myst">HDDT Objective</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#3"><span class="xref myst">Datasets</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#4"><span class="xref myst">Data Pipeline</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#5"><span class="xref myst">SQLite Database</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#6"><span class="xref myst">Architecture</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#7"><span class="xref myst">Big Data</span></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><a id='1'></a></p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="the-data-and-model-objectives">
+<h1>7.2.2 The data and model objectives<a class="headerlink" href="#the-data-and-model-objectives" title="Link to this heading">#</a></h1>
+<section id="the-data">
+<h2>The data:<a class="headerlink" href="#the-data" title="Link to this heading">#</a></h2>
+<p>My own research, in collaboration with others, has revealed the extensive social connectivity between the roughly 3000 members of a ‘Quaker Led Group (QLG). The QLG’s activities are spread across five organisations in Britain active between 1830 and 1870, which the Quaker members helped to set up and staff. I call these five organisations, the ‘Centres for the Emergence of Discipline of Anthropology in Britain’ (CEDA).Amongst the 3000 members of the CEDA are approximatley 600 Quakers, approximately 20% of the membership.</p>
+<p>The CEDA comprises:</p>
+<ul class="simple">
+<li><p>The Quaker Committee on the Aborigines, QCA - (1831 – 1846)</p></li>
+<li><p>The Aborigines Protection Society, APS - (1837 – 1848)</p></li>
+<li><p>The Ethnological Society of London, ESL - (1843 – 1848)</p></li>
+<li><p>The Anthropological Society of London, ASL - (1861 – 1869)</p></li>
+<li><p>The Anthropological Institute, AI – (1871). A merger of the ESL and ASL.</p></li>
+</ul>
+</section>
+<section id="the-hddt-requirements">
+<h2>The HDDT requirements<a class="headerlink" href="#the-hddt-requirements" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Able to handle the data (quantity and quality)</p></li>
+<li><p>User interventions</p></li>
+<li><p>Open source</p></li>
+<li><p>In common use</p></li>
+<li><p>Ease of Interoperability</p></li>
+<li><p>Free online learning aids</p></li>
+<li><p>Supported by University of Birmingham</p></li>
+<li><p>Independent Research Group friendly</p></li>
+</ul>
+</section>
+<section id="the-model">
+<h2>The model:<a class="headerlink" href="#the-model" title="Link to this heading">#</a></h2>
+<p>I have designed, built a suite of open-source relational database technologies and digital analytic tools to visualise and scrutinise the entire CEDA community over the 40 years of their collective action from their beginnings up to the formation of the Royal Anthropological Institute (1830-1870). I have identified the Quakers amongst them so that the community can be explored at both whole group and Quaker members levels. I am able to model the prosopographical relationships between the individual members of the CEDA both statically and dynamically (through time). I can analyse bipartite relationships for common attributes: kinship (Quakers only), education, occupations, locations and organisations.I have buit a Human Data Digital Toolkit (HDDT)to collect, clean, manage and present the data. The model and data have been designed to answer three questions:</p>
+</section>
+<section id="question-1">
+<h2>Question 1:<a class="headerlink" href="#question-1" title="Link to this heading">#</a></h2>
+<p>Can the model reveal the connectivity between the CEDA memberships and the four organisations that began with a concern for the plight of aborigines and led to the establishment of the discipline of anthropology in Britain 1830 - 1870? This question is important because it resolves current uncertainty over the origins of the discipline of anthropology in Britain and the extent of Quaker involvement.</p>
+</section>
+<section id="question-2">
+<h2>Question 2<a class="headerlink" href="#question-2" title="Link to this heading">#</a></h2>
+<p>Can the model seamlesssly facilitate an examination of Quaker to Quaker relationships, Quaker roles in the CEDA at the individual and at the individual society and whole group levels?</p>
+</section>
+<section id="question-3">
+<h2>Question 3<a class="headerlink" href="#question-3" title="Link to this heading">#</a></h2>
+<p>Can the model reveal the key networking role played by the Quaker Thomas Hodgkin MD (1798 – 1866) from the beginnings of the CEDA in 1830 and up to his death in 1866?</p>
+<p><a id='2'></a></p>
+<p>To create containers for the data collected in csv sheets from several sources and in different arrangements. To facilitate data combining and cleaning. To establish an auditable data pipeline. To hold the data in an sql database.  The model data  can then be analysed and visualised by using Gephi which is a compatible open source software package. The HDDT is designed to enable human prosopographical ordered data to be surveyed, much as an archaeologist might use a variety of technologies to survey a territorial site of historical interest.</p>
+<p>The HDDT is a new approach to the Digital Humanities. (1) in is exclusive concentrtion on Evidence Basded Prosopographical data  using open source data science techniques readily available to the lone researcher and capable of execution on an average desktop computer. The objective is to facilitate the study large sets of prosopographical data (of variable quality and quantity) either as individuals or groups of persons and embedded sub-groups of persons.</p>
+<p>Exponential population growth in the nineteenth century combined with a cultural, disciplined  and extensive interest in collecting, cataloguing and preserving historial artefacts and manuscripts, offers to the researcher an opportunity to study individuals, communities and whole sections of societies en masse.</p>
+<p>The archives of the nineteenth century are often very large, too big to be surveyed only by the naked eye. (and are immense when viewed collectively). From a prosopographical point of view they offer a rich source of prosopographical data, often organised as metadata (catalogued and frequently cross-referenced, if poorly referenced to primary sources).</p>
+<p>The HDDT facilitates the study of prosopographical data in itself, it is purposely free of narratology and interpretation. It, and other tools like it are essentil to all researchers wishing to underdand the peoples of the past and their relationships.</p>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="httd-technical-objective">
+<h1>7.2.3 HTTD technical Objective<a class="headerlink" href="#httd-technical-objective" title="Link to this heading">#</a></h1>
+<img src="diggers.png"><section id="archival-data-can-now-be-surveyed-much-as-an-archaeological-site-can-by-using-technology">
+<h2>Archival data can now be surveyed much as an archaeological site can - by using technology<a class="headerlink" href="#archival-data-can-now-be-surveyed-much-as-an-archaeological-site-can-by-using-technology" title="Link to this heading">#</a></h2>
+<p><a id='3'></a></p>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="contributing-datasets">
+<h1>7.2.4 Contributing datasets<a class="headerlink" href="#contributing-datasets" title="Link to this heading">#</a></h1>
+<section id="the-hddt-integrates-ordered-datasets-from-a-variety-of-sources-to-create-one-sqlite-httd-database">
+<h2>The HDDT integrates ordered datasets from a variety of sources to create one SQLite HTTD database<a class="headerlink" href="#the-hddt-integrates-ordered-datasets-from-a-variety-of-sources-to-create-one-sqlite-httd-database" title="Link to this heading">#</a></h2>
+<p>Historians can create a bespoke database taking data from multiple sources using the HDDT. This project takes data from:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Source</p></th>
+<th class="head"><p>Records</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Royal Anthropological Insitiute (RAI)</p></td>
+<td><p>2260</p></td>
+</tr>
+<tr class="row-odd"><td><p>Quaker Family History Society (QFHS)</p></td>
+<td><p>593</p></td>
+</tr>
+<tr class="row-even"><td><p>Independent research at RAI</p></td>
+<td><p>1171</p></td>
+</tr>
+<tr class="row-odd"><td><p>Independent research at Friends House Quaker Archive, London</p></td>
+<td><p>30</p></td>
+</tr>
+<tr class="row-even"><td><p>total records</p></td>
+<td><p>3095</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<img src="data_1.png"></section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="dataset-variability">
+<h1>7.2.5 Dataset variability<a class="headerlink" href="#dataset-variability" title="Link to this heading">#</a></h1>
+<p>Component datasets can be ‘Complete’, ‘Incomplete’ or ‘Irregular’ as long as the contributing datasets consist of records where at least one column is shared. In this Project person_name was common to all datasets.</p>
+<section id="a-complete-dataset">
+<h2>A ‘complete’ dataset<a class="headerlink" href="#a-complete-dataset" title="Link to this heading">#</a></h2>
+<p>Would be one like this, where all of the data is contained witin a perfect rectangular block of cells (‘containers’) and every container contains only one data item and every data item can be located by the coordinates ‘Row n, Column n’</p>
+<img src="data_2.png"></section>
+<section id="an-incomplete-dataset">
+<h2>An ‘incomplete’ dataset<a class="headerlink" href="#an-incomplete-dataset" title="Link to this heading">#</a></h2>
+<p>When historical data is used often some data is missing (it can be permanently lost). The HDDT is able to accept ‘Incomplete’ datasets. The HDDT does not lose functionality because of the incomplete nature of much historical data.</p>
+<img src="data_3.png"></section>
+<section id="an-irregular-dataset">
+<h2>An ‘irregular’ dataset<a class="headerlink" href="#an-irregular-dataset" title="Link to this heading">#</a></h2>
+<p>The HDDT has been designed to accept Irregular datasets. The surviving evidence of past lives is not only often Incomplete, it is frequently Irregular. An additional complication arsises when data from multiple sourcesmust be combined into a single dataset. Here it is likely that multiple donor datasets will have have different dimensions. This arises because either the data in itself is intrinsically different or because different data collectors have compiled data at different times and to different standards or simply prefer different collecting methods.</p>
+<p>For the HDDT a qualifying contributing dataset is a data set of any dimensions, complete, incomplete or irregular. The only requirement is that all contributing datasets must consist of prosopographical data and with the key field as PERSON-NAME.</p>
+<p><a id='4'></a></p>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="data-pipeline">
+<h1>7.2.6 Data pipeline<a class="headerlink" href="#data-pipeline" title="Link to this heading">#</a></h1>
+<p>In the HDDT data transits through a data pipeline with each component of the pipeline managed by a different technology. Great care was taken to ensure the the technological array comprised of open source technologies, fully integratable (losslessly) and widely supported and in wide use in the academic community.</p>
+<img src="pipeline.png"></section>
+<section class="tex2jax_ignore mathjax_ignore" id="model-output-data-visualisation-criteria">
+<h1>7.2.7 Model output - Data visualisation criteria<a class="headerlink" href="#model-output-data-visualisation-criteria" title="Link to this heading">#</a></h1>
+<p>In order to answer the three questions set the selected visualisation technology needed to be able to produce an affiliation network for social network analysis (a bipartite graph). Additionally it needed to be able to present data statically, where all 40 years data are compressed into one visualisation. This would enable the full extent of the network examined to be seen as a single image. Additionally, because the network evolves and changes over time, it was desirable that the technology handle dynamic data, where the network can be visualised progressively one year at a time from 1830 to 1870. Gephi met the project criteria.</p>
+<p><a id='5'></a></p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="integrated-httd-sqlite-database-3095-persons">
+<h1>7.2.8 Integrated HTTD SQLite database - 3095 persons<a class="headerlink" href="#integrated-httd-sqlite-database-3095-persons" title="Link to this heading">#</a></h1>
+<section id="entity-relationship-diagram-erd">
+<h2>Entity Relationship Diagram (ERD)<a class="headerlink" href="#entity-relationship-diagram-erd" title="Link to this heading">#</a></h2>
+<img src="erd.png"><p>At the heart of the HDDT (and the SQLite database) is the ‘person table’, this holds the data (attributes) unique to each person. All contributing datasets have one or more columns containing person names. Further columns often contain attribut data. Some attribute data may be recorded in sevearl donor datasets. Conflicts between dataset Person Name’s are resolved by first choosing to accept the ‘RAI dataset’ as the ‘Authority Index’. Matching names across donor datasets was done by hand in the CSV sheets. This is because (1) person name records from datasets other then the deemed (RAI) dataset were small in number, (2) because name matching requires judgement (names ofthen repeat in familiies and their might be little attributive data in common between the other donor data set and the RAI dataset and (3) because human matching is common practise in genealogy systems, even if algorithms are used to find possible matches. The finding of possible matches in this project was performed most efficiently by the human eye. (A move to the digital should not needlessly repalce the human).</p>
+<p>Tables of data items shared amongst persons (such as ‘occupation’, ‘location’, ‘societies’, ‘clubs’) are linked to the person table by m2m tables.</p>
+<p>There are also person_person tables to capture family relationships</p>
+<p><a id='6'></a></p>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="hddt-design-architecture">
+<h1>7.2.9 HDDT Design Architecture<a class="headerlink" href="#hddt-design-architecture" title="Link to this heading">#</a></h1>
+<p>The following packages are required to make the HDDT:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>package</p></th>
+<th class="head"><p>Use</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>GitHub</p></td>
+<td><p>for version control and sharing</p></td>
+</tr>
+<tr class="row-odd"><td><p>SQL</p></td>
+<td><p>the database</p></td>
+</tr>
+<tr class="row-even"><td><p>VSC</p></td>
+<td><p>building the database</p></td>
+</tr>
+<tr class="row-odd"><td><p>VSC</p></td>
+<td><p>version control interface to Git</p></td>
+</tr>
+<tr class="row-even"><td><p>DBeaver</p></td>
+<td><p>data cleaning, data management and ananysis</p></td>
+</tr>
+<tr class="row-odd"><td><p>Jupyter Notebook</p></td>
+<td><p>data analysis</p></td>
+</tr>
+<tr class="row-even"><td><p>Gephi</p></td>
+<td><p>data visualisation</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>They were chosen because they are universal, popular, open-source and suitable for handling historical ordered data.</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="project-containers-contain-all-required-resources">
+<h1>7.2.10 Project containers contain all required resources<a class="headerlink" href="#project-containers-contain-all-required-resources" title="Link to this heading">#</a></h1>
+<p>Data management needs caeful consideration and design. The HDDT uses the cocept of project containers where every container is set up and initialised as a GitHub repo. Then a Jupyter Notebook is created in the same container. All resources needed for a project are then copied from master containers (such as the template CSV files and dataframes in the ceda/database/views container.</p>
+<p>Gexf graph files and gexf project files also are set up and saved in each container.</p>
+<p>Relative links can then be used and their integrity preserved.</p>
+<p>GitGub can also be used for version control providing an audit trail of changes, additions and deletions to the HDDT container system.</p>
+<img src="resources.png"></section>
+<section class="tex2jax_ignore mathjax_ignore" id="github">
+<h1>7.2.11 Github<a class="headerlink" href="#github" title="Link to this heading">#</a></h1>
+<p>The entire HDDT project, its description, structure, organisation and resources are contained in one GitHub account:</p>
+<p><a class="github reference external" href="https://github.com/KelvinBeerJones">KelvinBeerJones</a></p>
+<img src="git.png"></section>
+<section class="tex2jax_ignore mathjax_ignore" id="sqlite-recommendations">
+<h1>7.2.12 SQLite recommendations<a class="headerlink" href="#sqlite-recommendations" title="Link to this heading">#</a></h1>
+<p>SQLite is a C-language library that implements a small, fast, self-contained, high-reliability, full-featured, SQL database engine. SQLite is the most used database engine in the world. SQLite is built into all mobile phones and most computers and comes bundled inside countless other applications that people use every day (<a class="reference external" href="https://www.sqlite.org/index.html">https://www.sqlite.org/index.html</a>).</p>
+<p>SQLite is a C-language library that implements a small, fast, self-contained, high-reliability, full-featured, SQL database engine. SQLite is the most used database engine in the world. SQLite is built into all mobile phones and most computers and comes bundled inside countless other applications that people use every day. The SQLite file format is stable, cross-platform, and backwards compatible and the developers pledge to keep it that way through the year 2050. SQLite database files are commonly used as containers to transfer rich content between systems and as a long-term archival format for data. There are over 1 trillion SQLite databases in active use. SQLite source code is in the public-domain and is free to everyone to use for any purpose. <a class="reference external" href="https://www.sqlite.org/about.html">https://www.sqlite.org/about.html</a></p>
+<p>In the two decades following its initial release, SQLite has become the most widely deployed database engine in existence. Today, SQLite is found in nearly every smartphone, computer, web browser, television, and automobile. Several factors are likely responsible for its ubiquity, including its in-process design, standalone codebase, extensive test suite, and cross-platform file format. While it supports complex analytical queries, SQLite is primarily designed for fast online transaction processing (OLTP), employing row-oriented execution and a B-tree storage format. However, fueled by the rise of edge computing and data science, there is a growing need for efficient in-process online analytical processing (OLAP). DuckDB, a database engine nicknamed “the SQLite for analytics”, has recently emerged to meet this demand. While DuckDB has shown strong performance on OLAP benchmarks, it is unclear how SQLite compares. Furthermore, we are aware of no work that attempts to identify root causes for SQLite’s performance behavior on OLAP workloads. In this paper, we discuss SQLite in the context of this changing workload landscape. We describe how SQLite
+evolved from its humble beginnings to the full-featured database engine it is today. We evaluate the performance of modern SQLite on three benchmarks, each representing a different flavor of in-process data management, including transactional, analytical, and blob processing. We delve into analytical data processing on SQLite, identifying key bottlenecks and weighing potential solutions. As a result of our optimizations, SQLite is now up to 4.2X faster on SSB. Finally, we discuss the future of SQLite, envisioning how it will evolve to meet new demands and challenges. ‘Sqlite: past, present, and future’ Gaffney, Kevin P, Prammer, Martin Brasfield, Larry Hipp, D Richard Kennedy, Dan Patel, Jignesh M (Gaffney et al. 2022, 3535)</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="vsc-recommendations">
+<h1>7.2.13 VSC recommendations<a class="headerlink" href="#vsc-recommendations" title="Link to this heading">#</a></h1>
+<p>Visual Studio Code is a lightweight but powerful source code editor which runs on your desktop and is available for Windows, macOS and Linux. It comes with built-in support for JavaScript, TypeScript and Node.js and has a rich ecosystem of extensions for other languages (such as C++, C#, Java, Python, PHP, Go) and runtimes (such as .NET and Unity)(<a class="reference external" href="https://code.visualstudio.com/">https://code.visualstudio.com/</a>).</p>
+<p>‘Visual Studio Code, commonly referred to as VS Code,is an integrated development environment developed by Microsoft for Windows, Linux, macOS and web browsers. Features include support for debugging, syntax highlighting, intelligent code completion, snippets, code refactoring, and embedded version control with Git. Users can change the theme, keyboard shortcuts, preferences, and install extensions that add functionality.
+Visual Studio Code is proprietary software released under the “Microsoft Software License”, but based on the MIT licensed program named “Visual Studio Code — Open Source” (also known as “Code — OSS”), also created by Microsoft and available through GitHub.
+In the 2024 Stack Overflow Developer Survey, out of 58,121 responses, 73.6% of respondents reported using Visual Studio Code, more than twice the percentage of respondents who reported using its nearest text editor and/or IDE alternative, Visual Studio. <a class="reference external" href="https://en.wikipedia.org/wiki/Visual_Studio_Code">https://en.wikipedia.org/wiki/Visual_Studio_Code</a></p>
+<p>‘Microsoft develops the free code editor Visual Studio Code (VSCode), that is used by more than 11 million users. In the StackOverflow developer survey from 2019, about 50% of the participants stated that they use VSCode, showing how popular this
+editor has become. The underlying source code is considered free (as in free speech) and referred to as Code - OSS. Microsoft uses Code - OSS as a base, slightly modifies it (e.g. adds a marketplace integration for distributing plugins), and releases it with a proprietary license under the name \Visual Studio Code”. Although this custom license makes VSCode technically speaking non-free and non-open source, other distributions of Code - OSS are free and contain substitutes for the missing features, for
+example VSCodium. Further analysis of VSCode and Code - OSS regarding aspects of FOSS (free and open source software) development can be found in the extensive preliminary study that was conducted before the project phase.’ ‘ Practical Study of Visual Studio Code’ Michael Plainer (Plainer 2021, 2)</p>
+<img src="vsc.png"></section>
+<section class="tex2jax_ignore mathjax_ignore" id="vsc-version-control-interface-local-to-online-git-repo-s">
+<h1>7.2.14 VSC (Version control interface local to online Git Repo’s<a class="headerlink" href="#vsc-version-control-interface-local-to-online-git-repo-s" title="Link to this heading">#</a></h1>
+<img src="vsc_for_git _version_control.png"></section>
+<section class="tex2jax_ignore mathjax_ignore" id="dbeaver-recommendations">
+<h1>7.2.15 DBeaver recommendations<a class="headerlink" href="#dbeaver-recommendations" title="Link to this heading">#</a></h1>
+<p>‘DBeaver is a universal database management tool for everyone who needs to work with data in a professional way. With DBeaver you are able to manipulate your data, for example, in a regular spreadsheet, create analytical reports based on records from different data storages, and export information in an appropriate format. For advanced database users, DBeaver suggests a powerful SQL-editor, plenty of administration features, abilities of data and schema migration, monitoring database connection sessions, and a lot more.
+Out-of-the box DBeaver supports more than 80 databases. Having usability as its main goal, DBeaver offers:</p>
+<ul class="simple">
+<li><p>Carefully designed and implemented User Interface</p></li>
+<li><p>Support of Cloud data sources</p></li>
+<li><p>Support for Enterprise security standard</p></li>
+<li><p>Capability to work with various extensions for integration with Excel, Git, and others.</p></li>
+<li><p>Great number of features</p></li>
+<li><p>Multiplatform support’
+<a class="github reference external" href="https://github.com/dbeaver/dbeaver/wiki">dbeaver/dbeaver</a></p></li>
+</ul>
+<p>DBeaver is a SQL client software application and a database administration tool. For relational databases it uses the JDBC application programming interface (API) to interact with databases via a JDBC driver. For other databases (NoSQL) it uses proprietary database drivers. It provides an editor that supports code completion and syntax highlighting. It provides a plug-in architecture (based on the Eclipse plugins architecture) that allows users to modify much of the application’s behavior to provide database-specific functionality or features that are database-independent. It is written in Java and based on the Eclipse platform. The community edition (CE) of DBeaver is a free and open source software that is distributed under the Apache License. A closed-source enterprise edition of DBeaver is distributed under a commercial license. <a class="reference external" href="https://en.wikipedia.org/wiki/DBeaver">https://en.wikipedia.org/wiki/DBeaver</a></p>
+<p>Universal Database Tool</p>
+<p>DBeaver is a free multi-platform database tool for developers, database administrators, analysts and all people who need to work with databases. Supports all popular databases: MySQL, PostgreSQL, SQLite, Oracle, DB2, SQL Server, Sybase, MS Access, Teradata, Firebird, Apache Hive, Phoenix, Presto, etc.(<a class="reference external" href="https://dbeaver.io/">https://dbeaver.io/</a>)</p>
+<img src="dbeaver.png"></section>
+<section class="tex2jax_ignore mathjax_ignore" id="jupyter-notebook-recommendations">
+<h1>7.2.16 Jupyter Notebook recommendations<a class="headerlink" href="#jupyter-notebook-recommendations" title="Link to this heading">#</a></h1>
+<p>The Jupyter Notebook is an open-source web application that allows you to create and share documents that contain live code, equations, visualizations and narrative text. Uses include: data cleaning and transformation, numerical simulation, statistical modeling, data visualization, machine learning. (<a class="reference external" href="https://jupyter.org/">https://jupyter.org/</a>).</p>
+<p>‘The Jupyter notebook is an open-source, browser-based tool functioning as a virtual lab notebook to support workflows, code, data, and visualizations detailing the research process. It is machine and human-readable, which facilitates interoperability and scholarly communication. These notebooks can live in online repositories and provide connections to research objects such as datasets, code, methods documents, workflows, and publications that reside elsewhere. Jupyter notebooks are one means to make science more open. Their relevance to the JCDL community lies in their interaction with multiple components of
+digital library infrastructure such as digital identifiers, persistence mechanisms, version control, datasets, documentation, software, and publications. Our poster examines how Jupyter notebooks embody the FAIR (Findable, Accessible, Interoperable, Reusable) principles for digital objects and assess their utility as viable tools for scholarly communication.’ ‘Using the Jupyter notebook as a tool for open science: An empirical study’ Randles Bernadette M, Pasquetto Irene V, Golshan Milena S,
+Borgman Christine L. (Randles et al. 2017, 1)</p>
+<img src="jnb.png"></section>
+<section class="tex2jax_ignore mathjax_ignore" id="gephi-recommends">
+<h1>7.2.17 Gephi recommends<a class="headerlink" href="#gephi-recommends" title="Link to this heading">#</a></h1>
+<p>‘Gephi is an open source software for graph and network analysis. It uses a 3D render engine to display large networks in real-time and to speed up the exploration. A flexible and multi-task architecture brings new possibilities to work with complex data sets and produce valuable visual results. We present several key features of Gephi in the context of interactive exploration and interpretation of networks. It provides easy and broad access to network data and allows for spatializing, filtering, navigating, manipulating and clustering. Finally, by presenting dynamic features of Gephi, we highlight key aspects of dynamic network visualization.’ Bastian Mathieu, Heymann Sebastien, Jacomy, Mathieu Gephi: an open source software for exploring and manipulating networks. (Bastian, Heymann, and Jacomy 2009, 361)</p>
+<p>Gephi is a tool for data analysts and scientists keen to explore and understand graphs. Like Photoshop™ but for graph data, the user interacts with the representation, manipulate the structures, shapes and colors to reveal hidden patterns. The goal is to help data analysts to make hypothesis, intuitively discover patterns, isolate structure singularities or faults during data sourcing. It is a complementary tool to traditional statistics, as visual thinking with interactive interfaces is now recognized to facilitate reasoning. This is a software for Exploratory Data Analysis, a paradigm appeared in the Visual Analytics field of research. <a class="reference external" href="https://gephi.org/features/">https://gephi.org/features/</a></p>
+<p>Gephi is a tool for data analysts and scientists keen to explore and understand graphs. Like Photoshop™ but for graph data, the user interacts with the representation, manipulate the structures, shapes and colors to reveal hidden patterns. The goal is to help data analysts to make hypothesis, intuitively discover patterns, isolate structure singularities or faults during data sourcing. It is a complementary tool to traditional statistics, as visual thinking with interactive interfaces is now recognized to facilitate reasoning. This is a software for Exploratory Data Analysis, a paradigm appeared in the Visual Analytics field of research.(<a class="reference external" href="https://gephi.org/features/">https://gephi.org/features/</a>)</p>
+<img src="gephi.png"></section>
+<section class="tex2jax_ignore mathjax_ignore" id="excel-recommends">
+<h1>7.2.18 Excel recommends<a class="headerlink" href="#excel-recommends" title="Link to this heading">#</a></h1>
+<p><a class="reference external" href="https://www.datacamp.com/tutorial/data-cleaning-in-excel-a-beginners-guide">https://www.datacamp.com/tutorial/data-cleaning-in-excel-a-beginners-guide</a></p>
+<p><a class="reference external" href="https://cartong.pages.gitlab.cartong.org/learning-corner/en/3_nettoyage/3_3_nettoyage_donnees">https://cartong.pages.gitlab.cartong.org/learning-corner/en/3_nettoyage/3_3_nettoyage_donnees</a></p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="references">
+<h1>7.2.19 References<a class="headerlink" href="#references" title="Link to this heading">#</a></h1>
+<p>Bastian, Mathieu, Sebastien Heymann, and Mathieu Jacomy. 2009. “Gephi: an open source software for exploring and manipulating networks.” Proceedings of the international AAAI conference on web and social media.</p>
+<p>Gaffney, Kevin P, Martin Prammer, Larry Brasfield, D Richard Hipp, Dan Kennedy, and Jignesh M Patel. 2022. “Sqlite: past, present, and future.” Proceedings of the VLDB Endowment 15 (12).</p>
+<p>Plainer, Michael. 2021. “Practical Study of Visual Studio Code.”</p>
+<p>Randles, Bernadette M, Irene V Pasquetto, Milena S Golshan, and Christine L Borgman. 2017. “Using the Jupyter notebook as a tool for open science: An empirical study.” 2017 ACM/IEEE Joint Conference on Digital Libraries (JCDL).</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="quakers-amongst-3000-activists-for-40-years">
+<h1>7.2.20  600 Quakers amongst 3000 activists for 40 years.<a class="headerlink" href="#quakers-amongst-3000-activists-for-40-years" title="Link to this heading">#</a></h1>
+<img src="big_data.png"></section>
+<section class="tex2jax_ignore mathjax_ignore" id="end">
+<h1>END<a class="headerlink" href="#end" title="Link to this heading">#</a></h1>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./chapters"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../intro.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Welcome to your Jupyter Book</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="2_introduction_sql_tables.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">P7 Chapter 2 The CEDA Members</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">P7 Chapter 1 - The Human Data digital Toolkit (HDDT)</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#thesis-chapter-6-sections-6-16-and-6-17">Thesis Chapter 6 Sections 6.16 and 6.17</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#jumps">7.2.1 Jumps</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#the-data-and-model-objectives">7.2.2 The data and model objectives</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-data">The data:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-hddt-requirements">The HDDT requirements</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-model">The model:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#question-1">Question 1:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#question-2">Question 2</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#question-3">Question 3</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#httd-technical-objective">7.2.3 HTTD technical Objective</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#archival-data-can-now-be-surveyed-much-as-an-archaeological-site-can-by-using-technology">Archival data can now be surveyed much as an archaeological site can - by using technology</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#contributing-datasets">7.2.4 Contributing datasets</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-hddt-integrates-ordered-datasets-from-a-variety-of-sources-to-create-one-sqlite-httd-database">The HDDT integrates ordered datasets from a variety of sources to create one SQLite HTTD database</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#dataset-variability">7.2.5 Dataset variability</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-complete-dataset">A ‘complete’ dataset</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#an-incomplete-dataset">An ‘incomplete’ dataset</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#an-irregular-dataset">An ‘irregular’ dataset</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#data-pipeline">7.2.6 Data pipeline</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#model-output-data-visualisation-criteria">7.2.7 Model output - Data visualisation criteria</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#integrated-httd-sqlite-database-3095-persons">7.2.8 Integrated HTTD SQLite database - 3095 persons</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#entity-relationship-diagram-erd">Entity Relationship Diagram (ERD)</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#hddt-design-architecture">7.2.9 HDDT Design Architecture</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#project-containers-contain-all-required-resources">7.2.10 Project containers contain all required resources</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#github">7.2.11 Github</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#sqlite-recommendations">7.2.12 SQLite recommendations</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#vsc-recommendations">7.2.13 VSC recommendations</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#vsc-version-control-interface-local-to-online-git-repo-s">7.2.14 VSC (Version control interface local to online Git Repo’s</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#dbeaver-recommendations">7.2.15 DBeaver recommendations</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#jupyter-notebook-recommendations">7.2.16 Jupyter Notebook recommendations</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#gephi-recommends">7.2.17 Gephi recommends</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#excel-recommends">7.2.18 Excel recommends</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#references">7.2.19 References</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#quakers-amongst-3000-activists-for-40-years">7.2.20  600 Quakers amongst 3000 activists for 40 years.</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#end">END</a></li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Kelvin Beer-Jones
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
