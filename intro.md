@@ -12,7 +12,7 @@ The CEDA are:
 The study used the Human Data Digital Toolkit (HDDT) comprising a SQLite database, Gephi Open Graph Visualisation Platform and Jupyter notebooks (JNB) to analyse and visualise Evidence Based Prosopographical information on the members of the CEDA. 
 The study was performed by Kelvin Beer-Jones working as a lone researcher, as a part of a PHD project for University of Birmingham: Evidence Based Prosopography in the Digital Study of Past Human Lives.
 
-## Chapter Summaries:
+**Chapter Summaries:**
 
 Chapter 1: Introduces the project and the HDDT
 
@@ -27,9 +27,3 @@ Chapters 5a and 5b: An analysis of the index to Protecting the Empire’s Humani
 Chapter 6: An analysis of the family relationships between the Quaker members of the CEDA
 
 Chapter 7: A presentation made to the Quaker Studies Research Association 2023.
-
-
-## Table of Contents
-
-```{tableofcontents}
-```
