@@ -1,0 +1,1318 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>P7 Chapter 5b Thomas Hodgkin’s MD networks - Part two &#8212; Project Seven</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'chapters/5b_jnb_hddt_laidlaw2';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="P7 Chapter 6 Case Study 2 589 Quakers and their family relationships" href="6_quaker_tables.html" />
+    <link rel="prev" title="P7 Chapter 5a Thomas Hodgkin MD’s networks - Part one" href="5a_laidlaw.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.jpg" class="logo__image only-light" alt="Project Seven - Home"/>
+    <img src="../_static/logo.jpg" class="logo__image only-dark pst-js-only" alt="Project Seven - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Project Seven
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="1_jnb_hddt_intro.html">P7 Chapter 1 - The Human Data digital Toolkit (HDDT)</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="2_introduction_sql_tables.html">P7 Chapter 2 The CEDA Members</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="3_jnb_ceda_database_views.html">P7 Chapter 3 HDDT Using SQLite database standard ‘views’</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="4_jnb_hddt_ceda_dyn_edges.html">P7 Chapter 4 Case Study 1 The Centres for the Emergence of the Discipline of Anthropology (CEDA)</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="5a_laidlaw.html">P7 Chapter 5a Thomas Hodgkin MD’s networks - Part one</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">P7 Chapter 5b Thomas Hodgkin’s MD networks - Part two</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="6_quaker_tables.html">P7 Chapter 6 Case Study 2 589 Quakers and their family relationships</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="7_qsra_september_2021.html">P7 Chapter 7 Project Seven presentation</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+<a href="https://github.com/KelvinBeerJones/Publish" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="Source repository"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/chapters/5b_jnb_hddt_laidlaw2.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>P7 Chapter 5b Thomas Hodgkin’s MD networks - Part two</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">P7 Chapter 5b Thomas Hodgkin’s MD networks - Part two</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#chapter-6-section-6-22-case-study-3-thomas-hodgkins-md-networks">Chapter 6 Section 6.22 Case Study 3: Thomas Hodgkin’s MD networks</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#protecting-the-empire-s-humanity-peh-thomas-hodgkin-and-british-colonial-activism-1830-1870-zoe-laidlaw-2021"><em>Protecting the Empire’s Humanity</em> (PEH): Thomas Hodgkin and British Colonial     Activism 1830 - 1870 (Zoë Laidlaw 2021)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#preparation">5.20 Preparation</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#github">5.21 Github</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#call-up-the-python-packages-needed-to-perform-the-analysis">5.22 Call up the python packages needed to perform the analysis</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#call-up-the-csv-files-and-prepare-data-for-gephi-visualisation">5.23 call up the csv files and prepare data for Gephi visualisation</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction-to-the-exercise-part-two">5.24 Introduction to the exercise - Part Two</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#data-verification">5.25 Data verification</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#person-table-after-modification">5.26  Person table after modification</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#code-cell-22-person-table-data">Code cell 22  - Person table data</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#persons-who-are-members-of-the-new-hod-ceda">5.27 Persons who are members of the new HOD CEDA</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#generate-gexf-file-for-gephi-visualisation">5.28 Generate gexf file for Gephi visualisation</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#code-cell-24-check-volume-of-data-for-gephi-visualisation-graph">Code cell 24 - Check volume of data for Gephi visualisation graph</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#code-cell-25-check-the-data-quality-for-gephi-visualisation-graph">Code cell 25 - Check the data quality for Gephi visualisation graph</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#code-cell-26-networkx-function">Code cell 26 - NetworkX function</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#code-cell-27-write-the-gexf-file">Code cell 27 - Write the gexf file</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#visual-analysis-of-the-exercise">5.29 Visual analysis of the exercise</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#the-ceda-political-network-with-hod-added">5.30 The CEDA political network with HOD added</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#the-ceda-political-network-with-hod-added-in-detail">5.31 The CEDA political network with HOD added in detail</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#github-upload">5.32 Github upload</a></li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="p7-chapter-5b-thomas-hodgkins-md-networks-part-two">
+<h1>P7 Chapter 5b Thomas Hodgkin’s MD networks - Part two<a class="headerlink" href="#p7-chapter-5b-thomas-hodgkins-md-networks-part-two" title="Link to this heading">#</a></h1>
+<section id="chapter-6-section-6-22-case-study-3-thomas-hodgkins-md-networks">
+<h2>Chapter 6 Section 6.22 Case Study 3: Thomas Hodgkin’s MD networks<a class="headerlink" href="#chapter-6-section-6-22-case-study-3-thomas-hodgkins-md-networks" title="Link to this heading">#</a></h2>
+<p>File name: jnb_hddt_laidlaw2</p>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="protecting-the-empire-s-humanity-peh-thomas-hodgkin-and-british-colonial-activism-1830-1870-zoe-laidlaw-2021">
+<h1><em>Protecting the Empire’s Humanity</em> (PEH): Thomas Hodgkin and British Colonial     Activism 1830 - 1870 (Zoë Laidlaw 2021)<a class="headerlink" href="#protecting-the-empire-s-humanity-peh-thomas-hodgkin-and-british-colonial-activism-1830-1870-zoe-laidlaw-2021" title="Link to this heading">#</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="preparation">
+<h1>5.20 Preparation<a class="headerlink" href="#preparation" title="Link to this heading">#</a></h1>
+<p>In Part Two of the exercise we modify the HDDT database to accept the data extracted from PEH and WEL, labelling it as a new CEDA called ‘HOD’ to show Thomas Hodgkin MD’s personal network. (note: This is his political network that Laidlaw observed in archival research as primarily supporting Hodgkin’s work to relieve the plight of Aborigines. It does not include his ‘medical’ or ‘scientific’ networks.)</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="github">
+<h1>5.21 Github<a class="headerlink" href="#github" title="Link to this heading">#</a></h1>
+<p>Make a private GitHub repository for the exercise and clone it to the University of Birmingham secure server space allocated for this project.  <a class="github reference external" href="https://github.com/KelvinBeerJones/jnb_laidlaw2">KelvinBeerJones/jnb_laidlaw2</a> cloned to this container</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="call-up-the-python-packages-needed-to-perform-the-analysis">
+<h1>5.22 Call up the python packages needed to perform the analysis<a class="headerlink" href="#call-up-the-python-packages-needed-to-perform-the-analysis" title="Link to this heading">#</a></h1>
+<ol class="arabic simple">
+<li><p>Pandas, numpy and pyplotlib, - used to create tables and charts in the Workbook.</p></li>
+<li><p>Plot.rc - to specify the dimensions for all imported images (this keeps images to a uniform size and shape).</p></li>
+<li><p>Itemgetter, NetworkX and nbconvert - to create a Gexf file for Gephi, which is used to generate visualisations and to perform visual analysis of the social networks.</p></li>
+<li><p>csv reader - to extract the selected sqlite database data from the selected db., views.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># First we call up the python packages we need to perform the analysis:</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rc</span><span class="p">(</span><span class="s1">&#39;figure&#39;</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">IPython.display</span><span class="w"> </span><span class="kn">import</span> <span class="n">set_matplotlib_formats</span>
+<span class="n">set_matplotlib_formats</span><span class="p">(</span><span class="s1">&#39;png&#39;</span><span class="p">,</span> <span class="s1">&#39;pdf&#39;</span><span class="p">)</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">operator</span><span class="w"> </span><span class="kn">import</span> <span class="n">itemgetter</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">networkx</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">nx</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">networkx.algorithms</span><span class="w"> </span><span class="kn">import</span> <span class="n">community</span> 
+
+<span class="c1">#This part of networkx, </span>
+<span class="c1"># for community detection, needs to be imported separately.</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">nbconvert</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">csv</span>
+
+<span class="c1"># &lt;img src=&quot;xxxx.png&quot;&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">5</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="ne">----&gt; </span><span class="mi">5</span> <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="n">plt</span><span class="o">.</span><span class="n">rc</span><span class="p">(</span><span class="s1">&#39;figure&#39;</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="kn">from</span><span class="w"> </span><span class="nn">IPython.display</span><span class="w"> </span><span class="kn">import</span> <span class="n">set_matplotlib_formats</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;matplotlib&#39;
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="call-up-the-csv-files-and-prepare-data-for-gephi-visualisation">
+<h1>5.23 call up the csv files and prepare data for Gephi visualisation<a class="headerlink" href="#call-up-the-csv-files-and-prepare-data-for-gephi-visualisation" title="Link to this heading">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">person_names</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span> <span class="p">(</span><span class="s1">&#39;vw_hddt_person_table2.csv&#39;</span><span class="p">)</span>
+<span class="n">hod</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span> <span class="p">(</span><span class="s1">&#39;laidlaw_hod.csv&#39;</span><span class="p">)</span>
+
+<span class="n">names2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span> <span class="p">(</span><span class="s1">&#39;vw_hddt_person_name2.csv&#39;</span><span class="p">)</span><span class="c1"># For nodes csv</span>
+<span class="n">tuples2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span> <span class="p">(</span><span class="s1">&#39;vw_hddt_ceda_tuples2.csv&#39;</span><span class="p">)</span><span class="c1"># For edges.csv</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;vw_hddt_person_name2.csv&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">nodecsv</span><span class="p">:</span> 
+
+<span class="c1"># Open the Nodes csv file</span>
+    <span class="n">nodereader</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">reader</span><span class="p">(</span><span class="n">nodecsv</span><span class="p">)</span> 
+
+<span class="c1"># Read the csv</span>
+    <span class="n">nodes</span> <span class="o">=</span> <span class="p">[</span><span class="n">n</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">nodereader</span><span class="p">][</span><span class="mi">1</span><span class="p">:]</span>
+
+<span class="c1"># Retrieve the data (using Python list comprhension and list slicing</span>
+<span class="c1"># to remove the header row</span>
+
+    <span class="n">node_names</span> <span class="o">=</span> <span class="p">[</span><span class="n">n</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">nodes</span><span class="p">]</span> 
+    
+<span class="c1"># Get a list of only the node names</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;vw_hddt_ceda_tuples2.csv&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">edgecsv</span><span class="p">:</span> 
+    
+<span class="c1"># Open the file</span>
+
+    <span class="n">edgereader</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">reader</span><span class="p">(</span><span class="n">edgecsv</span><span class="p">)</span> 
+<span class="c1"># Read the csv</span>
+
+    <span class="n">edge_list</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">edgereader</span><span class="p">)</span> 
+
+<span class="c1"># Convert to list, so can iterate below in for loop</span>
+    
+<span class="c1"># Create empty arrays to store edge data and edge attribute data</span>
+
+<span class="n">edges</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">edges_attributes</span> <span class="o">=</span> <span class="p">[]</span>
+    
+<span class="c1"># Fill the arrays with data from CSV</span>
+
+<span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">edge_list</span><span class="p">[</span><span class="mi">1</span><span class="p">:]:</span>
+    <span class="n">edges</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">tuple</span><span class="p">(</span><span class="n">e</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">]))</span> 
+    
+<span class="c1"># Get the first 2 columns (source, target) and add to array</span>
+<span class="c1"># not used this time. edges_attributes.append(tuple(e[2:4])) </span>
+<span class="c1"># Get the 3rd and 4th columns (first_year, last_year) and add to array</span>
+    
+<span class="n">edge_names</span> <span class="o">=</span> <span class="p">[</span><span class="n">e</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">edges</span><span class="p">]</span> <span class="c1"># Get a list of only the edge names   </span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="introduction-to-the-exercise-part-two">
+<h1>5.24 Introduction to the exercise - Part Two<a class="headerlink" href="#introduction-to-the-exercise-part-two" title="Link to this heading">#</a></h1>
+<p>As a result of the exercise performed in Laidlaw (Part One) we accept that a new CEDA can be created called HOD to represent the personal political network of Thomas Hodgkin MD as extracted from the Index to PEH and the indexes to the Wellcome Inst., Hodgkin Family Archive. All of the members of this new CEDA are also already recorded in the HTTD database as members of at least one of the original CEDA. In this part of the exercise we amend the HTTD database to include the CEDA group HOD.</p>
+<p>Laidlaw’s research into the Wellcome Inst., Hodgkin Collection reveals an important and relevant social network amongst the HDDT CEDA persons – based on Laidlaw’s close study of Thomas Hodgkin’s personal correspondence (where the receiver of correspondence also writes to him). We select some of Laidlaw’s person references because they already appear in the HDDT CEDA database, and they complement the data initially collected for this thesis because they provide new information about existing HDDT persons and networking.</p>
+<p>This necessitates amendments to the SQLite database and the production of another (this) Jupyter Notebook made to examine and verify the deepened HDDT CEDA networking in the HDDT as a whole  after the Laidlaw HOD modifications had been made.</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="data-verification">
+<h1>5.25 Data verification<a class="headerlink" href="#data-verification" title="Link to this heading">#</a></h1>
+<p>The members of the Centres for the Emergence of the Discipline of Anthropology in Britain (CEDA) after accepting the new Laidlaw Exercise (Part One) data assigning persons to a new CEDA called HOD. We show that the data_sources ‘WEL’ and ‘ZOE’ used in Laidlaw Exercise (part One) have been removed from the database. (They were temporarily placed in the HDDT solely as ‘dummies’ to show the number of persons referenced in PEH and WEL with two way correspondence, but disregarded by the Laidlaw (Part One) exercise because these person are not present in the original CEDA).</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="person-table-after-modification">
+<h1>5.26  Person table after modification<a class="headerlink" href="#person-table-after-modification" title="Link to this heading">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">person_names</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;data_source_id&#39;</span><span class="p">)[</span><span class="s1">&#39;Name&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">nunique</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;pie&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span> <span class="p">(</span><span class="s2">&quot;Persons_by_data_source&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span> <span class="p">(</span><span class="s2">&quot;data_source_id&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span> <span class="p">(</span><span class="s2">&quot;Number of persons&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/294d911a5015e73439e9ddae298c468ae74553054e9b1f70ed375deb1c24b384.png" src="../_images/294d911a5015e73439e9ddae298c468ae74553054e9b1f70ed375deb1c24b384.png" />
+</div>
+</div>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>data_source_id</p></th>
+<th class="head"><p>Source</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>RAI</p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>QCA</p></td>
+</tr>
+<tr class="row-even"><td><p>3</p></td>
+<td><p>APS</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<section id="code-cell-22-person-table-data">
+<h2>Code cell 22  - Person table data<a class="headerlink" href="#code-cell-22-person-table-data" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">person_names</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Name</th>
+      <th>title</th>
+      <th>gender_id</th>
+      <th>birth_year</th>
+      <th>death_year</th>
+      <th>data_source_id</th>
+      <th>notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Arthur William A Beckett</td>
+      <td>NaN</td>
+      <td>1.0</td>
+      <td>1844.0</td>
+      <td>1909.0</td>
+      <td>1</td>
+      <td>17 King Street, S. James's, S.W. 88 St James's...</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Andrew Mercer Adam</td>
+      <td>NaN</td>
+      <td>1.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1</td>
+      <td>Boston, Lincolnshire</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>H R Adam</td>
+      <td>NaN</td>
+      <td>1.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1</td>
+      <td>Old Calabar, W. Africa</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>William Adam</td>
+      <td>NaN</td>
+      <td>1.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Henry John Adams</td>
+      <td>NaN</td>
+      <td>1.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1</td>
+      <td>14 Thornhill Square, N.</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>3089</th>
+      <td>x Wright</td>
+      <td>Rev Dr</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>3</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>3090</th>
+      <td>W Wrigley</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>3</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>3091</th>
+      <td>James Yates</td>
+      <td>Rev</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>3</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>3092</th>
+      <td>John Young</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>3</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>3093</th>
+      <td>Thomas Zachary</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>3</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+<p>3094 rows × 7 columns</p>
+</div></div></div>
+</div>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="persons-who-are-members-of-the-new-hod-ceda">
+<h1>5.27 Persons who are members of the new HOD CEDA<a class="headerlink" href="#persons-who-are-members-of-the-new-hod-ceda" title="Link to this heading">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">hod</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>person_id</th>
+      <th>Name</th>
+      <th>birth_year</th>
+      <th>death_year</th>
+      <th>Target</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>3386</td>
+      <td>John Washington</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>HOD</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>3371</td>
+      <td>Jan Tzatzoe</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>HOD</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3366</td>
+      <td>J H Tredgold</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>HOD</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>3359</td>
+      <td>H B Thorpe</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>HOD</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>3357</td>
+      <td>Perronet Thompson</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>HOD</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>149</th>
+      <td>465</td>
+      <td>Frederick Cooper</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>HOD</td>
+    </tr>
+    <tr>
+      <th>150</th>
+      <td>403</td>
+      <td>Henry Christy</td>
+      <td>1,810</td>
+      <td>1,865</td>
+      <td>HOD</td>
+    </tr>
+    <tr>
+      <th>151</th>
+      <td>81</td>
+      <td>James (1) Backhouse</td>
+      <td>1,794</td>
+      <td>1,869</td>
+      <td>HOD</td>
+    </tr>
+    <tr>
+      <th>152</th>
+      <td>28</td>
+      <td>William (Capt.) Allen</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>HOD</td>
+    </tr>
+    <tr>
+      <th>153</th>
+      <td>7</td>
+      <td>William (1) Adams</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>HOD</td>
+    </tr>
+  </tbody>
+</table>
+<p>154 rows × 5 columns</p>
+</div></div></div>
+</div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="generate-gexf-file-for-gephi-visualisation">
+<h1>5.28 Generate gexf file for Gephi visualisation<a class="headerlink" href="#generate-gexf-file-for-gephi-visualisation" title="Link to this heading">#</a></h1>
+<section id="code-cell-24-check-volume-of-data-for-gephi-visualisation-graph">
+<h2>Code cell 24 - Check volume of data for Gephi visualisation graph<a class="headerlink" href="#code-cell-24-check-volume-of-data-for-gephi-visualisation-graph" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Nodes length: &quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">node_names</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Edges length: &quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">edges</span><span class="p">))</span>
+
+<span class="c1"># not used this time. </span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Edges attributes length: &quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">edges_attributes</span><span class="p">))</span> 
+
+<span class="c1"># This should be the same length as edges</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Nodes length:  3094
+Edges length:  4046
+Edges attributes length:  0
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="code-cell-25-check-the-data-quality-for-gephi-visualisation-graph">
+<h2>Code cell 25 - Check the data quality for Gephi visualisation graph<a class="headerlink" href="#code-cell-25-check-the-data-quality-for-gephi-visualisation-graph" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># First check that the data is correctly formatted</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;First 5 nodes:&quot;</span><span class="p">,</span> <span class="n">node_names</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">5</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;First 5 edges:&quot;</span><span class="p">,</span> <span class="n">edges</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">5</span><span class="p">])</span>
+<span class="c1"># not used this time. print(&quot;First 5 edges attributes:&quot;, edges_attributes[0:5])</span>
+
+<span class="c1"># The output will appear below this code cell.</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>First 5 nodes: [&#39;Arthur William A Beckett&#39;, &#39;Andrew Mercer Adam&#39;, &#39;H R Adam&#39;, &#39;William Adam&#39;, &#39;Henry John Adams&#39;]
+First 5 edges: [(&#39;William Adam&#39;, &#39;ESL&#39;), (&#39;William (1) Adams&#39;, &#39;ESL&#39;), (&#39;William (2) Adams&#39;, &#39;ESL&#39;), (&#39;Louis Agassiz&#39;, &#39;ESL&#39;), (&#39;Augustine Aglio&#39;, &#39;ESL&#39;)]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="code-cell-26-networkx-function">
+<h2>Code cell 26 - NetworkX function<a class="headerlink" href="#code-cell-26-networkx-function" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># We use NetworkX to build the graph data into a table</span>
+
+<span class="n">G</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">Graph</span><span class="p">()</span>
+<span class="n">G</span><span class="o">.</span><span class="n">add_nodes_from</span><span class="p">(</span><span class="n">node_names</span><span class="p">)</span>
+<span class="n">G</span><span class="o">.</span><span class="n">add_edges_from</span><span class="p">(</span><span class="n">edges</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">nx</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="n">G</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Name: 
+Type: Graph
+Number of nodes: 3100
+Number of edges: 4021
+Average degree:   2.5942
+</pre></div>
+</div>
+</div>
+</div>
+<p>The number of nodes here is 3094 persons plus 6 groups = 3100 (the additional 6 nodes are the CEDA names (CQA, APS, ESL, AI, ASL, and HOD). Gephi will produce a ‘bigraph’ of the data where relationships are beween individual persons and membership organisations.</p>
+</section>
+<section id="code-cell-27-write-the-gexf-file">
+<h2>Code cell 27 - Write the gexf file<a class="headerlink" href="#code-cell-27-write-the-gexf-file" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Finally we can write a gexf file which will be placed in the root directory.</span>
+<span class="c1"># We can then open the file in Gephi and visualize the network.</span>
+
+<span class="n">nx</span><span class="o">.</span><span class="n">write_gexf</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="s1">&#39;ceda_laidlaw2.gexf&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="visual-analysis-of-the-exercise">
+<h1>5.29 Visual analysis of the exercise<a class="headerlink" href="#visual-analysis-of-the-exercise" title="Link to this heading">#</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="the-ceda-political-network-with-hod-added">
+<h1>5.30 The CEDA political network with HOD added<a class="headerlink" href="#the-ceda-political-network-with-hod-added" title="Link to this heading">#</a></h1>
+<img src="laidlaw2.png"><div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Society</p></th>
+<th class="head"><p>abv.</p></th>
+<th class="head"><p>Dates</p></th>
+<th class="head"><p>Colour</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Quaker Committee on the Aborigines and the Thomas Hodgkin MD group</p></td>
+<td><p>QCA</p></td>
+<td><p>1832/37 - 1846</p></td>
+<td><p>Dark green</p></td>
+</tr>
+<tr class="row-odd"><td><p>Aborigines Protection Society</p></td>
+<td><p>APS</p></td>
+<td><p>1837 - 1919</p></td>
+<td><p>Purple</p></td>
+</tr>
+<tr class="row-even"><td><p>Ethnological Society of London</p></td>
+<td><p>ESL</p></td>
+<td><p>1843 - 1871</p></td>
+<td><p>Blue</p></td>
+</tr>
+<tr class="row-odd"><td><p>Anthropological Society of London</p></td>
+<td><p>ASL</p></td>
+<td><p>1863 - 1871</p></td>
+<td><p>Light Green</p></td>
+</tr>
+<tr class="row-even"><td><p>Anthropological Institute</p></td>
+<td><p>AI</p></td>
+<td><p>1843 - 1871</p></td>
+<td><p>Orange</p></td>
+</tr>
+<tr class="row-odd"><td><p>Protecting the Empire’s Humanity</p></td>
+<td><p>HOD</p></td>
+<td><p>2021</p></td>
+<td><p>dark green</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>The Hodgkin network and it’s relationships (shown above) are much clearer now that the groups WEL and ZOE have been combined into one. (Both of these former groups were identified by Laidlaw in PEH). The graph is best read ‘right’ to ‘left’ following the groups shown in dark green. The Quaker Committee on the Aborigines (QCA), active from 1832 - 1837 (or 1846?) appears top right. This group is ‘led’ by Thomas Hodgkin MD. Below is the APS formed in 1837 and active to 1919 (beyond the entire period studied in the thesis). We know that Thomas Hodgkin MD formed the APS at Ratcliffe Quaker Meeting House in 1837.</p>
+<p><em>“Dr Hodgkin moved that an auxiliary society be formed in Ratcliff [ ? Quaker meeting ?] for the purpose of promoting the objects of the Aborigines Protection Society and more especially to collect information from persons recently arrived from abroad and to exert an interest in those who might be going out as colonists or sailors. He observed that though a great amount of valuable information relating to the subjects now under consideration was brought to this part from various parts of the globe very great difficulty had been experienced in collecting it. The formation of the proposed branch society might do much to overcome this difficulty.”</em></p>
+<p>(WELLCOME LIBRARY FOR THE HISTORY AND UNDERSTANDING OF MEDICINE, DEPARTMENT OF ARCHIVES AND MANUSCRIPTS. HODGKIN FAMILY PAPERS  1996 PP/HO/D, Thomas Hodgkin MD (1798 1866), General Material on Civilisation and Colonialization. Aborigines Protection Society General Materials.)</p>
+<p>PP/HO/D/D148, Minutes of the First Meeting, (3ff), 1837</p>
+<p>Thomas Hodgkin’s network (HOD) does not centre closely to the QCA, it lies at the heart of the greater network collected and compiled in the HTTD. It links most strongly with the APS, but also has good connectivity with the ESL and later the ASL. It has poor connectivity to the AI.</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="the-ceda-political-network-with-hod-added-in-detail">
+<h1>5.31 The CEDA political network with HOD added in detail<a class="headerlink" href="#the-ceda-political-network-with-hod-added-in-detail" title="Link to this heading">#</a></h1>
+<img src="thomas_hodgkin_marked.png"><p>We can see that Hodgkin sits apart, pulled (By the Force Atlas algorithm) to sit between the QCA, the APS and his own personal network (HOD). He is revealled as highly networked and this indicates a possible key influencer.</p>
+<p>The next exercise (Chapter 6) will examine a much greater political activist network suporting and supported by Thomas Hodgkin MD, and one that is not revelaed in it’s full extent by this exercise, - Quakers in Britain.</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="github-upload">
+<h1>5.32 Github upload<a class="headerlink" href="#github-upload" title="Link to this heading">#</a></h1>
+<p>We can now update GitHub to pass this exercise and all its resources to the dedicated project repo (see step 1). This enables the entire exercise to be both scrutinised by others and replicated elsewhere (When the exercise is completed and audited, and all copyright issue resolved the repo can be made public).</p>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./chapters"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="5a_laidlaw.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">P7 Chapter 5a Thomas Hodgkin MD’s networks - Part one</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="6_quaker_tables.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">P7 Chapter 6 Case Study 2 589 Quakers and their family relationships</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">P7 Chapter 5b Thomas Hodgkin’s MD networks - Part two</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#chapter-6-section-6-22-case-study-3-thomas-hodgkins-md-networks">Chapter 6 Section 6.22 Case Study 3: Thomas Hodgkin’s MD networks</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#protecting-the-empire-s-humanity-peh-thomas-hodgkin-and-british-colonial-activism-1830-1870-zoe-laidlaw-2021"><em>Protecting the Empire’s Humanity</em> (PEH): Thomas Hodgkin and British Colonial     Activism 1830 - 1870 (Zoë Laidlaw 2021)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#preparation">5.20 Preparation</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#github">5.21 Github</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#call-up-the-python-packages-needed-to-perform-the-analysis">5.22 Call up the python packages needed to perform the analysis</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#call-up-the-csv-files-and-prepare-data-for-gephi-visualisation">5.23 call up the csv files and prepare data for Gephi visualisation</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction-to-the-exercise-part-two">5.24 Introduction to the exercise - Part Two</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#data-verification">5.25 Data verification</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#person-table-after-modification">5.26  Person table after modification</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#code-cell-22-person-table-data">Code cell 22  - Person table data</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#persons-who-are-members-of-the-new-hod-ceda">5.27 Persons who are members of the new HOD CEDA</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#generate-gexf-file-for-gephi-visualisation">5.28 Generate gexf file for Gephi visualisation</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#code-cell-24-check-volume-of-data-for-gephi-visualisation-graph">Code cell 24 - Check volume of data for Gephi visualisation graph</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#code-cell-25-check-the-data-quality-for-gephi-visualisation-graph">Code cell 25 - Check the data quality for Gephi visualisation graph</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#code-cell-26-networkx-function">Code cell 26 - NetworkX function</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#code-cell-27-write-the-gexf-file">Code cell 27 - Write the gexf file</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#visual-analysis-of-the-exercise">5.29 Visual analysis of the exercise</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#the-ceda-political-network-with-hod-added">5.30 The CEDA political network with HOD added</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#the-ceda-political-network-with-hod-added-in-detail">5.31 The CEDA political network with HOD added in detail</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#github-upload">5.32 Github upload</a></li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Kelvin Beer-Jones
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
