@@ -875,7 +875,7 @@ The study was performed by Kelvin Beer-Jones working as a lone researcher, as a 
 <h2>1.8 Integrated HTTD SQLite database - 3095 persons<a class="headerlink" href="#integrated-httd-sqlite-database-3095-persons" title="Link to this heading">#</a></h2>
 <section id="entity-relationship-diagram-erd">
 <h3>Entity Relationship Diagram (ERD)<a class="headerlink" href="#entity-relationship-diagram-erd" title="Link to this heading">#</a></h3>
-<img src="erd.png"><p>At the heart of the HDDT (and the SQLite database) is the ‘person table’, this holds the data (attributes) unique to each person. All contributing datasets have one or more columns containing person names. Further columns often contain attribut data. Some attribute data may be recorded in sevearl donor datasets. Conflicts between dataset Person Name’s are resolved by first choosing to accept the ‘RAI dataset’ as the ‘Authority Index’. Matching names across donor datasets was done by hand in the CSV sheets. This is because (1) person name records from datasets other then the deemed (RAI) dataset were small in number, (2) because name matching requires judgement (names ofthen repeat in familiies and their might be little attributive data in common between the other donor data set and the RAI dataset and (3) because human matching is common practise in genealogy systems, even if algorithms are used to find possible matches. The finding of possible matches in this project was performed most efficiently by the human eye. (A move to the digital should not needlessly repalce the human).</p>
+<img src="ERD.png"><p>At the heart of the HDDT (and the SQLite database) is the ‘person table’, this holds the data (attributes) unique to each person. All contributing datasets have one or more columns containing person names. Further columns often contain attribut data. Some attribute data may be recorded in sevearl donor datasets. Conflicts between dataset Person Name’s are resolved by first choosing to accept the ‘RAI dataset’ as the ‘Authority Index’. Matching names across donor datasets was done by hand in the CSV sheets. This is because (1) person name records from datasets other then the deemed (RAI) dataset were small in number, (2) because name matching requires judgement (names ofthen repeat in familiies and their might be little attributive data in common between the other donor data set and the RAI dataset and (3) because human matching is common practise in genealogy systems, even if algorithms are used to find possible matches. The finding of possible matches in this project was performed most efficiently by the human eye. (A move to the digital should not needlessly repalce the human).</p>
 <p>Tables of data items shared amongst persons (such as ‘occupation’, ‘location’, ‘societies’, ‘clubs’) are linked to the person table by m2m tables.</p>
 <p>There are also person_person tables to capture family relationships</p>
 <p><a id='6'></a></p>
@@ -11004,7 +11004,7 @@ Finally we save the graph in Gephi as a ‘project file’ to the JNB container 
 <section class="tex2jax_ignore mathjax_ignore" id="quaker-roles-emerge-in-detail">
 <h2>5.16 Quaker roles emerge in detail<a class="headerlink" href="#quaker-roles-emerge-in-detail" title="Link to this heading">#</a></h2>
 <p>PEH also references 6 (of the 15) Quakers who were members of the QCA - Josiah and William Forster, Robert Howard, Peter Bedford, Joseph Sturge and Robert Alsop (Jun)and they can be seen here networking between the QCA, APS, ZOE and Thomas Hodgkin MD.</p>
-<img src="Laidlaw_qca_ringed.png"></section>
+<img src="laidlaw_qca_ringed.png"></section>
 <section class="tex2jax_ignore mathjax_ignore" id="conclusions">
 <h2>5.17 Conclusions<a class="headerlink" href="#conclusions" title="Link to this heading">#</a></h2>
 <p>This exercise has shown that although Thomas Hodgkin’s networks appear only in the index in PEH and in the Wellcome Inst., Hodgkin Archive, in neither of these sources can political activist relationships be easily deduced but, by using data analysis and data visualisation technology thenetworks argued in PEH can be shown and analysed very clearly.</p>
@@ -14122,17 +14122,17 @@ Average degree:   2.5942
 <section id="a-complete-dataset">
 <h3>A ‘complete’ dataset<a class="headerlink" href="#a-complete-dataset" title="Link to this heading">#</a></h3>
 <p>Would be one like this, where all of the data can be contained witin a perfect rectangular block of cells (‘containers’) and every container contains only one data item and every data item can be located by the coordinates ‘Row n, Column n’</p>
-<img src="data 1.png">
+<img src="data_1.png">
 </section>
 <section id="an-incomplete-dataset">
 <h3>An ‘incomplete’ dataset<a class="headerlink" href="#an-incomplete-dataset" title="Link to this heading">#</a></h3>
 <p>When historical data is used often some data is missing (permanently lost) and the HDDT is able to accept ‘Incomplete’ datasets. The HDDT does not lose functionality because of the incomplete nature of much historical data.</p>
-<img src="data 2.png">
+<img src="data_2.png">
 </section>
 <section id="an-irregular-dataset">
 <h3>An ‘irregular’ dataset<a class="headerlink" href="#an-irregular-dataset" title="Link to this heading">#</a></h3>
 <p>The HDDT has been designed to accept Irregular datasets. The surviving evidence of the past is not only often Incomplete, it is frequently Irregular, where multiple datasets have different dimensions. (Either because the data in itself is intrinsically different or because different data collectors use different cataloguing methods)</p>
-<img src="data 3.png">
+<img src="data_3.png">
 <p>For the HDDT a qualifying dataset is a data set of any dimensions, complete, incomplete or irregular. The only requirement is that all datasets must contain a single common containing one universally shared data item. The HDDT requires all data sets to contain datatables that can be referenced to a PERSON (Name) in one of its rows.</p>
 <p>Conflicts between dataset Person (Name)’s are resolved by adopting in this project by nominating the ‘RAI dataset’ as the ‘Authority Index’. With careful matching of Person (Name)’s found in other datasets, the RAI naming rule applies throughout.</p>
 </section>
